@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       Base WP Plugin
- * Plugin URI:        https://sarahjobs.com/wordpress/plugins/api-renderflex
- * Description:       Starter WordPress plugin.
+ * Plugin Name:       API RenderFlex
+ * Plugin URI:        https://sarahjobs.com/plugins/api-renderflex
+ * Description:       API RenderFlex is a WordPress plugin designed to fetch and display data from external APIs with ease.
  * Version:           0.1.0
  * Requires at least: 5.3
  * Requires PHP:      7.2
@@ -12,7 +12,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl.html
  * Text Domain:       api-renderflex
  * Domain Path:       /languages
- * Update URI:        https://sarahjobs.com/wordpress/plugins/api-renderflex/update
+ * Update URI:        https://sarahjobs.com/plugins/api-renderflex/update
  *
  * @package API_RenderFlex
  */
