@@ -1,0 +1,4 @@
+/vendor/
+/node_modules/
+.phpcs.cache
+.phpunit.result.cache
