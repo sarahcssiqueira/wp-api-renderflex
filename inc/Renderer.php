@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Renderer class
  *
@@ -28,17 +27,28 @@ class Renderer {
 	 * This method calls the API via renderflex_fetch_api_data(), passing in the necessary API URL, headers, and arguments.
 	 * It then processes the API response and renders the appropriate output based on the data returned.
 	 *
+	 * @param $atts
+	 *
 	 * @return void This function outputs the data directly, so it does not return a value.
 	 */
-	public function render_api_output() {
+	public function render_api_output( $atts ) {
 
-		$api_url = 'https://dev.to/api/articles?username=sarahcssiqueira';
+		// Get stored values from the settings.
+		$default_api_url = get_option( 'renderflex_api_url' );
+
+		// Define default parameters and merge with user-provided attributes.
+		$atts = shortcode_atts(
+			[
+				'api_url' => $default_api_url,  // Use the stored default API URL.
+			],
+			$atts
+		);
+
+		$api_url = $atts['api_url'];
 		$header  = [];
 		$args    = [];
 
 		$results = ( new APIHandler() )->renderflex_fetch_api_data( $api_url, $header, $args );
-
-		// print_r($results);
 
 		?>
 		<?php if ( ! empty( $results ) ) : ?>
