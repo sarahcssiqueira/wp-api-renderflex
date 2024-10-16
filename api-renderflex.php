@@ -26,9 +26,9 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Define essential constants.
  */
-define( 'APIRENDERFLEX_VERSION', '1.0.0' );
-define( 'APIRENDERFLEX_PHP_MINIMUM', '7.4.0' );
-define( 'APIRENDERFLEX_WP_MINIMUM', '6.4.0' );
+define( 'APIRENDERFLEX_VERSION', '0.1.0' );
+define( 'APIRENDERFLEX_PHP_MINIMUM', '7.2.0' );
+define( 'APIRENDERFLEX_WP_MINIMUM', '5.3.0' );
 
 /**
  * Composer Autoload
