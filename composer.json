@@ -31,5 +31,20 @@
     "phpunit/phpunit": "^9.5",
     "phpunit/php-code-coverage": "^9.2",
     "yoast/phpunit-polyfills" : "^2.0"
+  },
+  "extra": {
+    "patches": {
+        "wp-coding-standards/wpcs": {
+            "Fix null trim() issue in multiple files": "patches/fix-null-trim-multi.patch"
+        }
+    }
+},
+  "require": {
+    "cweagans/composer-patches": "^1.7"
+  },
+  "config": {
+    "allow-plugins": {
+      "cweagans/composer-patches": true
+    }
   }
 }

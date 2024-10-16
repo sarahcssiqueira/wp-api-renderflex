@@ -1,0 +1,26 @@
+--- a/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/NamingConventions/PrefixAllGlobalsSniff.php
++++ b/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/NamingConventions/PrefixAllGlobalsSniff.php
+@@ -280,7 +280,7 @@
+
+        // Original code with `trim()`
+        // Update this line:
+-       $cl_prefixes = trim( PHPCSHelper::get_config_data( 'prefixes' ) );
++       $cl_prefixes = is_null( PHPCSHelper::get_config_data( 'prefixes' ) ) ? '' : trim( PHPCSHelper::get_config_data( 'prefixes' ) );
+
+--- a/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php
++++ b/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/WP/I18nSniff.php
+@@ -194,7 +194,7 @@
+
+        // Original code with `trim()`
+        // Update this line:
+-       $cl_text_domain = trim( PHPCSHelper::get_config_data( 'text_domain' ) );
++       $cl_text_domain = is_null(PHPCSHelper::get_config_data( 'text_domain' )) ? '' : trim( PHPCSHelper::get_config_data( 'text_domain' ) );
+
+--- a/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Sniff.php
++++ b/vendor/wp-coding-standards/wpcs/WordPress/Sniffs/Sniff.php
+@@ -1144,7 +1144,7 @@
+
+        // Original code with `trim()`
+        // Update this line:
+-       $cl_supported_version = trim( PHPCSHelper::get_config_data( 'minimum_supported_wp_version' ) );
++       $cl_supported_version = is_null(PHPCSHelper::get_config_data( 'minimum_supported_wp_version' )) ? '' : trim( PHPCSHelper::get_config_data( 'minimum_supported_wp_version' ) );
