@@ -3,7 +3,7 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 [![PluginTerritory](https://img.shields.io/badge/Plugin%20Territory-Free-blue.svg?logo=wordpress)]()
-[![Release Version](https://img.shields.io/github/release/sarahcssiqueira/api-renderflex.svg?color)](https://github.com/sarahcssiqueira/api-renderflex/releases/latest)
+[![Release Version](https://img.shields.io/github/release/sarahcssiqueira/wp-api-renderflex.svg?color)](https://github.com/sarahcssiqueira/wp-api-renderflex/releases/latest)
 [![Support Level](https://img.shields.io/badge/support-may_take_time-yellow.svg)](#support-level)
 
 API RenderFlex is a versatile **WordPress plugin designed to fetch and display data from external APIs with ease.** Whether you're pulling in content from third-party services or custom APIs, this plugin gives you full control over how the data is rendered. Built-in support for both Gutenberg blocks and shortcodes, developers and site owners can easily customize the output using filters and hooks, making it reusable for a wide range of APIs and use cases. Perfect for those who want flexible, dynamic API integration without sacrificing customization.
