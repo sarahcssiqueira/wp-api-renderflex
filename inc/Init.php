@@ -19,6 +19,7 @@ class Init {
 	public static function classes_list() {
 		return [
 			Plugin::class,
+			Settings::class,
 		];
 	}
 
