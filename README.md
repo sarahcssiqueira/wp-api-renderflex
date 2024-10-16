@@ -14,7 +14,7 @@ Clone the repository with `git clone https://github.com/sarahcssiqueira/api-rend
 
 ## Shortcode
 
-[TO DO]
+[renderflex_api]
 
 ## Block
 

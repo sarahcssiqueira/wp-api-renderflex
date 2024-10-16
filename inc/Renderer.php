@@ -17,8 +17,7 @@ class Renderer {
 	public static function initialize() {
 
 		$self = new self();
-		// for testing while developing purposes only.
-		add_action( 'admin_notices', [ $self, 'render_api_output' ] );
+		add_shortcode( 'renderflex_api', [ $self, 'renderflex_api_shortcode' ] );
 	}
 
 	/**
@@ -59,6 +58,13 @@ class Renderer {
 			<?php endforeach; ?>
 		<?php endif; ?>
 		<?php
+	}
+	/**
+	 *
+	 */
+	public static function renderflex_api_shortcode( $atts = [] ) {
+		$self = new self();
+		return $self->render_api_output( $atts );
 	}
 
 }
