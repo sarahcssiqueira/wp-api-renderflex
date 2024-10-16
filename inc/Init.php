@@ -20,6 +20,7 @@ class Init {
 		return [
 			Plugin::class,
 			Settings::class,
+			APIHandler::class,
 		];
 	}
 
