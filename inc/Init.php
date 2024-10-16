@@ -21,6 +21,7 @@ class Init {
 			Plugin::class,
 			Settings::class,
 			APIHandler::class,
+			Renderer::class,
 		];
 	}
 
