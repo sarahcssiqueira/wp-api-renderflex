@@ -22,6 +22,7 @@ class Init {
 			Settings::class,
 			APIHandler::class,
 			Renderer::class,
+			Shortcodes::class,
 		];
 	}
 
