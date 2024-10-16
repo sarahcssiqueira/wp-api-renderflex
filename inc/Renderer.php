@@ -15,9 +15,7 @@ class Renderer {
 	 * Custom constructor for handle WordPress Hooks
 	 */
 	public static function initialize() {
-
 		$self = new self();
-		add_shortcode( 'renderflex_api', [ $self, 'renderflex_api_shortcode' ] );
 	}
 
 	/**
@@ -58,13 +56,6 @@ class Renderer {
 			<?php endforeach; ?>
 		<?php endif; ?>
 		<?php
-	}
-	/**
-	 *
-	 */
-	public static function renderflex_api_shortcode( $atts = [] ) {
-		$self = new self();
-		return $self->render_api_output( $atts );
 	}
 
 }
