@@ -1,0 +1,4 @@
+{
+    "phpsab.fixerEnable":true,
+    "phpsab.snifferEnable": true, 
+}
