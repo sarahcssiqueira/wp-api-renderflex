@@ -17,20 +17,8 @@ class Plugin {
 	public static function initialize() {
 
 		$self = new self();
-		add_action( 'admin_notices', [ $self, 'display_hello_world' ] );
 		register_activation_hook( __FILE__, [ $self, 'api_renderflex_plugin_activate' ] );
 		register_deactivation_hook( __FILE__, [ $self, 'api_renderflex_plugin_deactivate' ] );
-	}
-
-	/**
-	 * Display 'Hello from the API Render Flex!' message on admin panel
-	 */
-	public function display_hello_world() {
-		?>
-		<div class="notice notice-success is-dismissible">
-			<p><?php esc_html_e( 'Hello from the API Render Flex!', 'api-renderflex' ); ?></p>
-		</div>
-		<?php
 	}
 
 	/**
