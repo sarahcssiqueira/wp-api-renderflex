@@ -10,10 +10,10 @@ API RenderFlex is a versatile **WordPress plugin designed to fetch and display d
 
 ## Features
 
-    - **Easy Initialization:** Automatically registers all necessary classes for optimal functionality.
-    - **Admin Settings Menu:** Provides a user-friendly interface to set your API URL.
-    - **Data Rendering:** Utilizes the API handler to fetch and display data.
-    - **Shortcode Support:** Quickly render API data in your content with a simple shortcode.
+- **Easy Initialization:** Automatically registers all necessary classes for optimal functionality.
+- **Admin Settings Menu:** Provides a user-friendly interface to set your API URL.
+- **Data Rendering:** Utilizes the API handler to fetch and display data.
+- **Shortcode Support:** Quickly render API data in your content with a simple shortcode.
 
 ## Usage
 
@@ -21,9 +21,9 @@ After activating the plugin, you can configure it as follows:
 
 ### Setting the API URL
 
-    - Go to Settings > API Render Flex in your WordPress admin panel.
-    - Enter your API URL in the designated field.
-    - Save your changes.
+- Go to Settings > API Render Flex in your WordPress admin panel.
+- Enter your API URL in the designated field.
+- Save your changes.
 
 ### Rendering Data with Shortcode
 
@@ -39,8 +39,8 @@ This section provides information for developers who wants to use and/or extend 
 
 To begin contributing to API RenderFlex, you will need to set up your local development environment. Ensure you have the following prerequisites installed:
 
-    - Node.js: Required for managing JavaScript dependencies and running the development server.
-    - Composer: A dependency manager for PHP, used to install the necessary PHP packages.
+- Node.js: Required for managing JavaScript dependencies and running the development server.
+- Composer: A dependency manager for PHP, used to install the necessary PHP packages.
 
 
 To clone the repository, run the following command: `git clone https://github.com/sarahcssiqueira/api-renderflex.git`
@@ -74,46 +74,15 @@ When you're ready to optimize and minify assets for production, run:
 
 ### PHP Classes
 
-The plugin is organized into several key classes, each responsible for different functionalities. Familiarizing yourself with these classes will help you understand how to extend the plugin. Classes are automatically loaded by the Init class with the method **register_classes_list** on Init class:
-
-```
-    /**
-	 * Loop through the classes list, initialize them,
-	 * and call the initialize() method if it exists
-	 */
-	public static function register_classes_list() {
-		foreach ( self::classes_list() as $class ) {
-			$classname = self::instantiate( $class );
-			if ( method_exists( $classname, 'initialize' ) ) {
-				$classname->initialize();
-			}
-		}
-	}
-```
-
-To add new classes, make sure add them to the array present in the method **classes_list**:
-
-```
-	/**
-	 * Store the classes inside an array
-	 *
-	 * @return array Full list of classes
-	 */
-	public static function classes_list() {
-		return [
-			Plugin::class,
-            YourNewClass::class,
-		];
-	}
-```
+The plugin is organized into several key classes, each responsible for different functionalities. Familiarizing yourself with these classes will help you understand how to extend the plugin. 
 
 ### Current Classes Overview
 
-    - **Init:** This class is responsible for registering and initializing all necessary classes required by the plugin.
-    - **Settings:** Creates an admin menu where users can configure the API URL.
-    - **Rendered:** This class uses the API handler to fetch and render data from the specified API.
-    - **APIHandler:** Handles API requests and responses.
-    - **Shortcode:** Implements the shortcode [renderflex_api] to display the rendered data.
+- **Init:** This class is responsible for registering and initializing all necessary classes required by the plugin.
+- **Settings:** Creates an admin menu where users can configure the API URL.
+- **Rendered:** This class uses the API handler to fetch and render data from the specified API.
+- **APIHandler:** Handles API requests and responses.
+- **Shortcode:** Implements the shortcode [renderflex_api] to display the rendered data.
 
 ## To Do List
 

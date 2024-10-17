@@ -10,11 +10,26 @@ namespace APIRenderFlex\Inc;
 class Shortcodes {
 
 	/**
-	 * Initialize the class and register shortcode
+	 * Renderer instance
+	 *
+	 * @var Renderer
 	 */
-	public static function initialize() {
-		$self = new self();
-		add_shortcode( 'renderflex_api_other', [ $self, 'renderflex_api_shortcode' ] );
+	private $renderer;
+
+	/**
+	 * Constructor to inject dependencies
+	 *
+	 * @param Renderer $renderer The renderer dependency.
+	 */
+	public function __construct( Renderer $renderer ) {
+		$this->renderer = $renderer;
+	}
+
+	/**
+	 * Register shortcode using WordPress hook.
+	 */
+	public function initialize() {
+		add_shortcode( 'renderflex_api_other', [ $this, 'renderflex_api_shortcode' ] );
 	}
 
 	/**
@@ -36,7 +51,6 @@ class Shortcodes {
 		);
 
 		// Call the API and render the output
-		$renderer = new Renderer();
-		return $renderer->render_api_output( $atts );
+		return $this->renderer->render_api_output( $atts );
 	}
 }

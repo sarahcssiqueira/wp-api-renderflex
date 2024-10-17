@@ -11,42 +11,30 @@ namespace APIRenderFlex\Inc;
  * Bootstrap the plugin.
  */
 class Init {
-	/**
-	 * Store the classes inside an array
-	 *
-	 * @return array Full list of classes
-	 */
-	public static function classes_list() {
-		return [
-			Plugin::class,
-			Settings::class,
-			APIHandler::class,
-			Renderer::class,
-			Shortcodes::class,
-		];
+
+	private $plugin;
+	private $settings;
+	private $apihandler;
+	private $renderer;
+	private $shortcodes;
+
+	public function __construct( Plugin $plugin, Settings $settings, APIHandler $apihandler, Renderer $renderer, Shortcodes $shortcodes ) {
+		$this->plugin     = $plugin;
+		$this->settings   = $settings;
+		$this->apihandler = $apihandler;
+		$this->renderer   = $renderer;
+		$this->shortcodes = $shortcodes;
 	}
 
 	/**
-	 * Loop through the classes list, initialize them,
-	 * and call the initialize() method if it exists
+	 * Initializes the classes with injected dependencies.
 	 */
-	public static function register_classes_list() {
-		foreach ( self::classes_list() as $class ) {
-			$classname = self::instantiate( $class );
-			if ( method_exists( $classname, 'initialize' ) ) {
-				$classname->initialize();
-			}
-		}
-	}
+	public function register_classes_list() {
+		$this->plugin->initialize();
+		$this->settings->initialize();
+		$this->apihandler->initialize();
+		$this->renderer = new Renderer( $this->apihandler );
+		$this->shortcodes->initialize();
 
-	/**
-	 * Initialize the class
-	 *
-	 * @param  class $class    class from the services array.
-	 * @return class instance  new instance of the class
-	 */
-	private static function instantiate( $class ) {
-		$classname = new $class();
-		return $classname;
 	}
-};
+}

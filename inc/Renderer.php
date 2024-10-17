@@ -12,10 +12,19 @@ namespace APIRenderFlex\Inc;
  */
 class Renderer {
 	/**
-	 * Custom constructor for handle WordPress Hooks
+	 * APIHandler instance
+	 *
+	 * @var APIHandler
 	 */
-	public static function initialize() {
-		$self = new self();
+	private $apihandler;
+
+	/**
+	 * Constructor to inject the APIHandler dependency
+	 *
+	 * @param APIHandler $apihandler The APIHandler dependency.
+	 */
+	public function __construct( APIHandler $apihandler ) {
+		$this->apihandler = $apihandler;
 	}
 
 	/**
@@ -45,7 +54,8 @@ class Renderer {
 		$header  = [];
 		$args    = [];
 
-		$results = ( new APIHandler() )->renderflex_fetch_api_data( $api_url, $header, $args );
+		// Use the injected APIHandler to fetch the API data.
+		$results = $this->apihandler->renderflex_fetch_api_data( $api_url, $header, $args );
 
 		?>
 		<?php if ( ! empty( $results ) ) : ?>

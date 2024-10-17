@@ -37,11 +37,22 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
 
-
-/**
- * Bootstraps the plugin
- */
 use APIRenderFlex\Inc\Init;
+use APIRenderFlex\Inc\Plugin;
+use APIRenderFlex\Inc\Settings;
+use APIRenderFlex\Inc\APIHandler;
+use APIRenderFlex\Inc\Renderer;
+use APIRenderFlex\Inc\Shortcodes;
 
-$init = new Init();
-$init->register_classes_list();
+function apirenderflex_init() {
+	$plugin     = new Plugin();
+	$settings   = new Settings();
+	$apihandler = new APIHandler();
+	$renderer   = new Renderer( $apihandler );
+	$shortcodes = new Shortcodes( $renderer );
+
+	$init = new Init( $plugin, $settings, $apihandler, $renderer, $shortcodes );
+	$init->register_classes_list();
+}
+
+add_action( 'plugins_loaded', 'apirenderflex_init' );
