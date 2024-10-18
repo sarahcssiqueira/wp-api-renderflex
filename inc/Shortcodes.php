@@ -29,7 +29,7 @@ class Shortcodes {
 	 * Register shortcode using WordPress hook.
 	 */
 	public function initialize() {
-		add_shortcode( 'renderflex_api_other', [ $this, 'renderflex_api_shortcode' ] );
+		add_shortcode( 'renderflex_api', [ $this, 'renderflex_api_shortcode' ] );
 	}
 
 	/**

@@ -3,7 +3,7 @@
  * Plugin Name:       API RenderFlex
  * Plugin URI:        https://sarahjobs.com/plugins/api-renderflex
  * Description:       API RenderFlex is a WordPress plugin designed to fetch and display data from external APIs with ease.
- * Version:           0.1.0
+ * Version:           0.1.2
  * Requires at least: 5.3
  * Requires PHP:      7.2
  * Author:            Sarah Siqueira
