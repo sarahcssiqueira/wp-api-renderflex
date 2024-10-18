@@ -17,19 +17,20 @@ class Shortcodes {
 	private $renderer;
 
 	/**
-	 * Constructor to inject dependencies
+	 * Constructor to inject dependencies and register the shortcode using WordPress hook.
 	 *
 	 * @param Renderer $renderer The renderer dependency.
 	 */
 	public function __construct( Renderer $renderer ) {
 		$this->renderer = $renderer;
-	}
 
-	/**
-	 * Register shortcode using WordPress hook.
-	 */
-	public function initialize() {
-		add_shortcode( 'renderflex_api', [ $this, 'renderflex_api_shortcode' ] );
+		// Register the shortcode during the 'init' action to ensure WordPress is fully loaded.
+		add_action(
+			'init',
+			function() {
+				add_shortcode( 'renderflex_api', [ $this, 'renderflex_api_shortcode' ] );
+			}
+		);
 	}
 
 	/**

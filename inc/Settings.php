@@ -15,7 +15,7 @@ class Settings {
 	/**
 	 * Custom constructor for handle WordPress Hooks
 	 */
-	public static function initialize() {
+	public function __construct() {
 
 		$self = new self();
 		add_action( 'admin_init', [ $self, 'renderflex_register_settings' ] );

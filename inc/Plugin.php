@@ -14,7 +14,7 @@ class Plugin {
 	/**
 	 * Custom constructor for handle WordPress Hooks
 	 */
-	public static function initialize() {
+	public function __construct() {
 
 		$self = new self();
 		register_activation_hook( __FILE__, [ $self, 'api_renderflex_plugin_activate' ] );

@@ -1,6 +1,8 @@
 <?php
 /**
- * API handler class
+ * API Handler class
+ *
+ * This class retrieves data from external APIs.
  *
  * @package API_RenderFlex
  */
@@ -8,16 +10,17 @@
 namespace APIRenderFlex\Inc;
 
 /**
- * API Handler methods
+ * Class APIHandler
+ *
+ * Handles the API data fetching functionalities.
  */
 class APIHandler {
 
 	/**
 	 * Custom constructor for handle WordPress Hooks
 	 */
-	public static function initialize() {
-
-		$self = new self();
+	public function __construct() {
+		$self = new static();
 		add_action( 'init', [ $self, 'renderflex_fetch_api_data' ] );
 	}
 
@@ -43,15 +46,11 @@ class APIHandler {
 		// Make the API request using wp_remote_request.
 		$response = wp_remote_request( $url, $args );
 
-		// Check for errors.
 		if ( is_wp_error( $response ) ) {
 			return 'Error: ' . $response->get_error_message();
 		}
 
-		// Retrieve the response body.
 		$body = wp_remote_retrieve_body( $response );
-
-		// Decode the response into an associative array.
 		$data = json_decode( $body, true );
 
 		if ( json_last_error() !== JSON_ERROR_NONE ) {
