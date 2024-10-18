@@ -39,17 +39,6 @@ class Shortcodes {
 	 * @return string HTML content for the shortcode
 	 */
 	public function renderflex_api_shortcode( $atts ) {
-		// Fetch API URL from settings.
-		$api_url = get_option( 'renderflex_api_url' );
-
-		// Merge attributes with default values.
-		$atts = shortcode_atts(
-			[
-				'api_url' => $api_url,  // Use default or passed API URL.
-			],
-			$atts
-		);
-
 		// Call the API and render the output
 		return $this->renderer->render_api_output( $atts );
 	}
