@@ -57,14 +57,26 @@ class Renderer {
 		// Use the injected APIHandler to fetch the API data.
 		$results = $this->apihandler->renderflex_fetch_api_data( $api_url, $header, $args );
 
+		// Make it responsbible for selecting templates TBD
 		?>
+
 		<?php if ( ! empty( $results ) ) : ?>
-			<?php foreach ( $results as $result ) : ?>
+			<?php if ( is_array( $results ) ) : ?>
+				<?php foreach ( $results as $result ) : ?>
 				<div>
 					<h2><?php echo esc_html( $result ['title'] ); ?></h2>
 				</div>
 			<?php endforeach; ?>
+				<?php
+	elseif ( is_string( $results ) ) :
+		?>
+		<div>
+			<h2><?php echo esc_html( $results ); ?></h2>
+		</div>
 		<?php endif; ?>
+		<?php else : ?>
+	<p>No results found.</p>
+<?php endif; ?>
 		<?php
 	}
 

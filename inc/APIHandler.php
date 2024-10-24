@@ -20,8 +20,7 @@ class APIHandler {
 	 * Custom constructor for handle WordPress Hooks
 	 */
 	public function __construct() {
-		$self = new static();
-		add_action( 'init', [ $self, 'renderflex_fetch_api_data' ] );
+		add_action( 'init', [ $this, 'renderflex_fetch_api_data' ] );
 	}
 
 	/**

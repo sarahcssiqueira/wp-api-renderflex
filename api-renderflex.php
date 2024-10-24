@@ -51,8 +51,9 @@ function apirenderflex_init() {
 	$renderer   = new Renderer( $apihandler );
 	$shortcodes = new Shortcodes( $renderer );
 
-	$init = new Init( $plugin, $settings, $apihandler, $renderer, $shortcodes );
-	$init->register_classes_list();
+	// Considering best approach on this
+	// $init = new Init( $plugin, $settings, $apihandler, $renderer, $shortcodes );
+	// $init->register_classes_list();
 }
 
 add_action( 'plugins_loaded', 'apirenderflex_init' );

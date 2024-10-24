@@ -52,7 +52,7 @@ class Init {
 		$this->settings   = new Settings();
 		$this->apihandler = new APIHandler();
 		$this->renderer   = new Renderer( $this->apihandler );
-		$this->shortcodes = new Shortcodes();
+		$this->shortcodes = new Shortcodes( $this->renderer );
 
 	}
 }

@@ -16,9 +16,8 @@ class Plugin {
 	 */
 	public function __construct() {
 
-		$self = new self();
-		register_activation_hook( __FILE__, [ $self, 'api_renderflex_plugin_activate' ] );
-		register_deactivation_hook( __FILE__, [ $self, 'api_renderflex_plugin_deactivate' ] );
+		register_activation_hook( __FILE__, [ $this, 'api_renderflex_plugin_activate' ] );
+		register_deactivation_hook( __FILE__, [ $this, 'api_renderflex_plugin_deactivate' ] );
 	}
 
 	/**

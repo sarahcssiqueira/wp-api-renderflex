@@ -17,9 +17,8 @@ class Settings {
 	 */
 	public function __construct() {
 
-		$self = new self();
-		add_action( 'admin_init', [ $self, 'renderflex_register_settings' ] );
-		add_action( 'admin_menu', [ $self, 'renderflex_add_settings_page' ] );
+		add_action( 'admin_init', [ $this, 'renderflex_register_settings' ] );
+		add_action( 'admin_menu', [ $this, 'renderflex_add_settings_page' ] );
 	}
 
 	/**
